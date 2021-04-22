@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<title>STRETCHERS</title>
+<style type="text/css">
+body { overflow: auto;
+       background-color: #996633;
+	   	font-family : Arial, Verdana, sans-serif;
+	    font-size : 14px;}
+#display {
+	background-color: #000000;
+	border: thin solid #990000;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+select {
+         width: 100px;
+		}
+
+input {
+        width: 22px;
+	   }
+input.price {
+        width: 70px;
+}
+
+
+
+input.measure {
+        width: 50px;
+}
+
+
+input, select {
+		 color: #000000;
+		 font-family: Arial, Helvetica, sans-serif;
+		 font-size: 10px;
+		}
+
+input.calcbutton
+{
+background-color: #480017;
+color: #CCCC99;
+width: 100px;
+font-weight: bold;
+font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+input.totbutton
+{
+background-color: #480017;
+color: #CCCC99;
+width: 130px;
+font-weight: bold;
+font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+.footer {
+	background-color: #480017;
+	color: #CCCC99;
+	font-weight: bold;
+}
+
+#strpricer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+#strnotes {
+        width: 572px;
+		overflow: auto;
+	   }
+
+#linearft {
+        width: 50px;
+	   }
+
+#strfolds {
+        width: 50px;
+	   }
+
+
+.center
+{
+margin-left: auto;
+margin-right: auto;
+width:700px;
+}
+</style>
+<script type="text/javascript" src="calc/loadData.js"></script>
+<script type="text/javascript" src="calc/strcalc-rev.js"></script>
+<script type="text/javascript" src="calc/clothcalc-str.js"></script>
+<script type="text/javascript" src="calc/strtot.js"></script>
+<script type="text/javascript" src="calc/clearstr.js"></script>
+</head>
+
+<body text="#cccc99" link="#cc9900" vlink="#669966" alink="#FFFF99">
+<div class="center">
+
+	<form id="strpricer" name="strpricer" method="post" action="">
+  <table width="588px" height="108" border="0" align="center" id="display">
+	<tr><td height=58 colspan="8" class="footer"><h3 align="center">Stretcher and Canvas Price Calculator</h3>
+<p align="center"><a name="price"></a>To price a stretcher frame, select the type, size in linear inches, whether you want it<br />to be collapsible (for quick and easy assembly and disassembly)<br> and, if you would like folds, how many folds you would like.<br /><br /><em>Calculator is a guide only as prices can be subject to change without notice.  Please contact Barronarts to confirm current pricing.</em></p></td></tr>
+  <tr><td height=58 colspan="8"><h3 align="center">Inflation Multiplier:</h3>
+<p align="center" id="inflation"></p></td></tr>
+
+<tr>
+  <td colspan="8">
+  <div align="center">
+    Bar Style:
+    <select name="strstyle" id="strstyle">
+      <option value=4.35>PROBARS 1&quot;</option>
+      <option value=4.85 selected="selected">PROBARS 1.5&quot;</option>
+      <option value=4.95>PROBARS 1.75&quot;</option>
+      <option value=5.35>PROBARS 2&quot;</option>
+      <option value=5.55>PROBARS 2.25&quot;</option>
+      <option value=5.85>PROBARS 2.5&quot;</option>
+      <option value=6.45>PROBARS 2.75&quot;</option>
+      <option value=6.85>PROBARS 3.0&quot;</option>
+      <option value=7.35>PROBARS 3.25&quot;</option>
+      <option value=7.85>PROBARS 3.5&quot;</option>
+      <option value=8.35>PROBARS 3.75&quot;</option>
+      <option value=8.85>PROBARS 4&quot;</option>
+      <option value=3.65>A BARS</option>
+      <option value=3.50>B BARS</option>
+      </select>
+    &nbsp;&nbsp;Dimensions (inches): &nbsp;
+    <label>
+      Length :
+        <input name="strlength" id="linearft2" class="measure">
+    </label>
+    &nbsp;Height
+    <label>:
+      <input name="strheight" id="linearft" class="measure">
+      </label>
+      </div>
+      </td>
+</tr>
+
+
+<tr>
+  <td colspan="8" valign="bottom">
+
+  <div align="center">
+  Crossbars:
+
+
+
+    <label>
+      (L)
+      <input name="blength" id="blength" value=0>
+      </label>
+
+    <label>(H)
+      <input name="bheight" id="bheight" value=0>
+      </label>
+      <label>
+    &nbsp;&nbsp;&nbsp;Override:<input type="checkbox" name="override" id="override">
+&nbsp;&nbsp;&nbsp; </label>
+    <label>
+    Collapsible:<input type="checkbox" name="collapse" id="collapse">
+&nbsp;&nbsp;&nbsp; </label>
+
+    <label>
+      Folds:
+      <select name="strfolds" id="strfolds">
+        <option value=0 selected="selected">None</option>
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+      </select>
+      </label>
+      </div>
+      </td>
+
+</tr>
+  <tr>
+  <td colspan="8">
+    <div align="center">
+    	  Stretcher Subtotal:
+  <INPUT name="strprice" type="text" class="price" id="strprice">
+      <INPUT TYPE="button" class="calcbutton" VALUE="Calculate Price" onClick="totPrice()">
+      <INPUT TYPE="button" class="calcbutton" VALUE="Clear" onClick="clearStr()">
+      </div></td>
+  </tr>
+
+  <tr>
+	  <td colspan="3" class="footer">
+	  	Stretching Calculator
+  </td>
+  	  <td colspan="4" class="footer">
+	  	Priming Calculator
+  </td>
+</tr>
+
+  <tr>
+  <td>
+  <label>
+  Material:<br/>
+  <select name="cmaterial" id="cmaterial" onChange="addOptionBySel(this.selectedIndex)">
+   	<option value=0  selected="selected">None</option>
+  	<option value=1>#12 Canvas</option>
+    <option value=2>#10 Canvas</option>
+    <option value=3>#12 Canvas Pre-Primed</option>
+    <option value=4>#10 Canvas Pre-Primed</option>
+    <option value=5>Extra-Smooth Portrait Linen</option>
+    <option value=6>Medium-Smooth Linen</option>
+    <option value=7>Coarse Linen</option>
+  </select>
+  </label>
+  </td>
+    <td>
+  Stretching $: <br />
+  <INPUT name="cprice" type="text" class="price" id="cprice" value="$0.00">
+  </td>
+  <td>
+  <label>
+  Custom Priming:<br>
+  <select name="primecoats" id="primecoats">
+    <option value=0 selected="selected">None</option>
+    <option value=2>Standard 2 Coat</option>
+    <option value=3>Custom 3 Coat</option>
+    <option value=4>Custom 4 Coat</option>
+    <option value=5>Custom 5 Coat</option>
+    <option value=6>Custom 6 Coat</option>
+  </select>
+  </label>
+</td>
+
+<td>
+    <label>
+Prime Type:<br>
+    <select name="primetype" id="primetype">
+      <option value="1">Gesso White Acrylic</option>
+      <option value="1.35">GAC400 Clearcoat</option>
+    </select>
+    </label>
+</td>
+
+<td>
+  Priming $: <br />
+  <INPUT name="pprice" type="text" class="price" id="pprice" value="$0.00">
+  </td>
+</tr>
+  <tr>
+  <td colspan="7">
+  <div align="center">
+  Stretching Subtotal:
+  <INPUT name="canprice" type="text" id="ctotprice" class="price">
+  <INPUT TYPE="button" class="calcbutton" VALUE="Calculate Price" onClick="totPrice()">
+  <INPUT TYPE="button" class="calcbutton" VALUE="Clear" onClick="clearCloth()">
+  </div>
+  </td>
+  </tr>
+
+  <tr>
+	  <td colspan="8" class="footer">
+	  	Calculate Total
+  </td>
+</tr>
+    <tr>
+  <td colspan="8">
+    <div align="center">
+    	Number of Stretchers: <INPUT name="strunits" type="text" id="strunits" value="0">
+    	TOTAL: <INPUT name="totprice" type="text" class="price" id="totprice" value="$0.00"> <INPUT TYPE="button" class="calcbutton" VALUE="TOTAL" onClick="totPrice()">
+    	  <INPUT  type="reset" class="calcbutton" VALUE="CLEAR ALL">
+      </div></td>
+  </tr>
+
+
+  <tr>
+  <td colspan="8">
+    Notes:
+  <TEXTAREA rows="3" name="strnotes" id="strnotes"></TEXTAREA>
+  </td>
+  </tr>
+
+</table>
+</form>
+</div>
+</body>
+</html>
