@@ -14,7 +14,7 @@ function loadXMLDoc(cname) {
         document.cookie = cname + "=" + response + "; samesite=strict;";
     }
   };
-  xhttp.open("GET", url, false);
+  xhttp.open("GET", url, true);
   xhttp.send();
 }
 
