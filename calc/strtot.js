@@ -2,8 +2,11 @@
 
 function totPrice()
 {
-	strPrice();
-	clothPrice();
+	checkCookie("inflation");
+	strPrice(inflation);
+	clothPrice(inflation);
+document.getElementById(cname).innerHTML = inflation;
+	var producttype = '';
 
 var strlength = parseFloat(document.forms.strpricer.strlength.value, 10);
 var strheight = parseFloat(document.forms.strpricer.strheight.value, 10);
@@ -45,17 +48,18 @@ document.forms.strpricer.totprice.value = "$" + totprice ;
 
 var productname = strlength + '\" ' + strheight + " " + producttype;
 
-document.forms.cpricer.baproductname.value = productname;
+//document.forms.cpricer.baproductname.value = productname;
 
 
 
 var now = (new Date( )).getTime( );
 var productid = now;
 
-
+/**
 document.forms.strpricer.baproductid.value = productid;
 document.forms.strpricer.baproductname.value = productname;
 document.forms.strpricer.baproductprice.value = totprice;
 document.forms.strpricer.baproductqty.value = 1;
+**/
 }
 
