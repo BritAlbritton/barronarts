@@ -1,11 +1,9 @@
 // JavaScript Document
 
-function strPrice()
+function strPrice(stretcher_inflation)
 {
 
 var strtext = ""; //Clear notes field
-
-var stretcher_inflation=document.getElementById("inflation").innerHTML; 
 
 var strlength = Math.ceil(parseFloat(document.forms.strpricer.strlength.value, 10));
 var strheight = Math.ceil(parseFloat(document.forms.strpricer.strheight.value, 10));
