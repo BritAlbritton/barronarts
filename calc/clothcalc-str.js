@@ -13,8 +13,7 @@ function addOptionBySel(index) {
     }
 }
 
-function clothPrice() {
-    var cloth_inflation = document.getElementById("inflation").innerHTML;
+function clothPrice(cloth_inflation) {
     var strlength = parseFloat(document.forms.strpricer.strlength.value, 10);
     var strheight = parseFloat(document.forms.strpricer.strheight.value, 10);
     if (isNaN(strlength)) {
